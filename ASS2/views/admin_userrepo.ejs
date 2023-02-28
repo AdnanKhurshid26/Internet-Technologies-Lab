@@ -1,0 +1,50 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    
+  <%- include('includes/nav.ejs') %>
+
+    <div class="body-container">
+        <h1><%=username%> 's Repository</h1>
+        <div class="cards">
+          <% for (let it of items) { %>
+            <div class="card" style="width: 18rem;">
+                <%if(it.fileExtension == "jpg" || it.fileExtension == "png" || it.fileExtension == "jpeg"){%>
+                <img src="/<%= it.imageUrl %>" class="card-img-top" alt="...">
+                <%}else if(it.fileExtension == "mp4" || it.fileExtension == "mkv" || it.fileExtension == "avi"){%>
+                <video src="/<%= it.imageUrl %>" class="card-img-top" alt="..." controls></video>
+                <%}else if(it.fileExtension == "mp3" || it.fileExtension == "wav" || it.fileExtension == "ogg"){%>
+                <audio src="/<%= it.imageUrl %>" class="card-img-top" alt="..." controls></audio>
+                <%}else if(it.fileExtension == "pdf"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="application/pdf">
+                <%}else if(it.fileExtension == "docx" || it.fileExtension == "doc"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="application/msword">
+                <%}else if(it.fileExtension == "pptx" || it.fileExtension == "ppt"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="application/vnd.ms-powerpoint">
+                <%}else if(it.fileExtension == "xlsx" || it.fileExtension == "xls"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="application/vnd.ms-excel">
+                <%}else if(it.fileExtension == "txt"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="text/plain">
+                <%}else if(it.fileExtension == "zip" || it.fileExtension == "rar"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="application/zip">
+                <%}else if(it.fileExtension == "html"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="text/html">
+                <%}else if(it.fileExtension == "css"){%>
+                <embed src="/<%= it.imageUrl %>" class="card-img-top" alt="..." type="text/css">
+                <%}%>
+                <div class="card-body">
+                  <h4 class="card-title"><%= it.title %></h4>
+                  <h6>Uploaded by : <%= it.username %></h6>
+                  <!-- <p class="card-text">Some quick example text to build on the Spider-Man and make up the bulk of the card's content.</p> -->
+                  <a href="/download/<%= it._id %>" class="my-2 btn btn-primary download-btn">Download</a>
+                  <a href="/delete/<%= it._id %>" class="my-2 btn btn-danger download-btn">Delete</a>
+                </div>
+              </div>
+       <% } %>
+              
+        </div>
+        
+    </div>
+  
+    <%- include('includes/end.ejs') %>

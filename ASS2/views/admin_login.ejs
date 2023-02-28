@@ -1,0 +1,21 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+    <div class="body-container">
+        <div class="form-container">
+            
+            <form class="signup-form" action="/adminlogin" method="POST">
+                <h1 style="text-align: center;">Manager Upgrade</h1>
+                
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Enter Passcode</label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <!-- <p>Don't have an account? <a href="/signup">Register</a></p> -->
+                <button type="submit" class="btn btn-primary btn-signup">Upgrade</button>
+              </form>
+        </div>
+        
+    </div>
+
+    <%- include('includes/end.ejs') %>
